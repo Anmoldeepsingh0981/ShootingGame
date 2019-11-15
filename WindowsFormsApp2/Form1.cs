@@ -15,13 +15,14 @@ namespace WindowsFormsApp2
     {
         public Form1()
         {
+            // Set the positions
             InitializeComponent();
             this.pointAtHead.Enabled = false;
             this.PointAway.Enabled = false;
             this.SpinChamber.Enabled = false;
             this.Fire.Enabled = false;
         }
-        int shots_left=3;
+        int shots_left=6;
         int cham_loc =  1;
         int bullet_loc;
         int stayAway = 2;
@@ -50,9 +51,11 @@ namespace WindowsFormsApp2
 
         private void LoadBullet_Click(object sender, EventArgs e)
         {
-            SoundPlayer audio = new SoundPlayer(WindowsFormsApp2.Properties.Resources.reload);
+            //playing the audio
+            SoundPlayer audio = new SoundPlayer(ShootingGame.Properties.Resources.reload);
             audio.Play();
-            bullet_loc = ran.Next(1, 6);
+            //creating the bullets location
+            bullet_loc = ran.Next(1, 7);
             this.LoadBullet.Enabled = false;
             this.pointAtHead.Enabled = true;
             this.PointAway.Enabled = true;
@@ -62,23 +65,23 @@ namespace WindowsFormsApp2
 
         public void showAnimatedPictureBox()
         {
-            person.Image = Properties.Resources.dead;
+            person.Image = ShootingGame.Properties.Resources.dead;
             person.Refresh();
             person.Visible = true;
         }
 
         private void Fire_Click(object sender, EventArgs e)
         {
-           
+         // set the bullet location for shoot and get the points
             if (this.gun.Location.X == 196)
             {
                 if (bullet_loc == cham_loc)
                 {
                     showAnimatedPictureBox();
-                    SoundPlayer audio = new SoundPlayer(WindowsFormsApp2.Properties.Resources.fire);
+                    SoundPlayer audio = new SoundPlayer(ShootingGame.Properties.Resources.fire);
                     audio.Play();
                     this.Fire.Visible = false;
-                    this.Status.Text = "Died";
+                    this.Status.Text = "Died ";
                     this.Status.Visible = true;
                     this.PlayAgain.Visible = true;
                     this.PointAway.Visible = false;
@@ -97,10 +100,11 @@ namespace WindowsFormsApp2
                 stayAway--;
                 if (bullet_loc == cham_loc)
                 {
-                    SoundPlayer audio = new SoundPlayer(WindowsFormsApp2.Properties.Resources.fire);
+                    // play and getting the points
+                    SoundPlayer audio = new SoundPlayer(ShootingGame.Properties.Resources.fire);
                     audio.Play();
                     this.Fire.Visible = false;
-                    this.Status.Text = "Survived";
+                    this.Status.Text = "Survived you got 100 points";
                     this.Status.Visible = true;
                     this.PlayAgain.Visible = true;
                     this.PointAway.Visible = false;
@@ -113,6 +117,7 @@ namespace WindowsFormsApp2
                     shots_left--;
                     this.ShotsLeft.Text = "Shots Left=" + shots_left;
                 }
+
             }
             if (shots_left == 0)
             {
@@ -125,7 +130,7 @@ namespace WindowsFormsApp2
                 this.LoadBullet.Visible = false;
                 this.SpinChamber.Visible = false;
             }
-            
+            // Spin the chamber and change the position
             if (cham_loc == 6)
             {
                 cham_loc = 0;

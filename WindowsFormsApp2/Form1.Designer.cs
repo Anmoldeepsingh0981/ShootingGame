@@ -115,7 +115,7 @@
             this.ShotsLeft.Name = "ShotsLeft";
             this.ShotsLeft.Size = new System.Drawing.Size(176, 35);
             this.ShotsLeft.TabIndex = 9;
-            this.ShotsLeft.Text = "Shots left=3";
+            this.ShotsLeft.Text = "Shots left=6";
             // 
             // Status
             // 
@@ -141,7 +141,7 @@
             // gun
             // 
             this.gun.BackColor = System.Drawing.Color.Transparent;
-            this.gun.Image = global::WindowsFormsApp2.Properties.Resources.gun1;
+            this.gun.Image = global::ShootingGame.Properties.Resources.gun1;
             this.gun.Location = new System.Drawing.Point(262, 117);
             this.gun.MaximumSize = new System.Drawing.Size(209, 114);
             this.gun.MinimumSize = new System.Drawing.Size(209, 114);
@@ -154,7 +154,7 @@
             // person
             // 
             this.person.BackColor = System.Drawing.Color.White;
-            this.person.Image = global::WindowsFormsApp2.Properties.Resources.person;
+            this.person.Image = global::ShootingGame.Properties.Resources.person;
             this.person.Location = new System.Drawing.Point(26, 90);
             this.person.MaximumSize = new System.Drawing.Size(540, 500);
             this.person.MinimumSize = new System.Drawing.Size(240, 220);
